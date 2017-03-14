@@ -25,8 +25,19 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		if (parentElement instanceof RentalAgency)
-			return ((RentalAgency) parentElement).getCustomers().toArray();
+		
+		if (parentElement instanceof RentalAgency) 
+		{
+			RentalAgency a = (RentalAgency) parentElement;
+			return new Node[] { new Node(Node.CUSTOMERS, a),
+					new Node(Node.RENTAL, a),
+					new Node(Node.OBJECTS, a),
+					};	
+		}
+		else if (parentElement instanceof Node)
+		{
+			return ((Node)parentElement).getChildren();
+		}
 		return null;
 	}
 
@@ -38,8 +49,7 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	@Override
 	public boolean hasChildren(Object element) {
-		// TODO Auto-generated method stub
-		return true;
+		return element instanceof RentalAgency || element instanceof Node;
 	}
 	
 	@Override
@@ -50,6 +60,40 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return ((Customer) element).getDisplayName();
 		
 		return super.getText(element);
+	}
+	
+	public class Node {
+		
+		public static final String CUSTOMERS = "Customers";
+		public static final String RENTAL = "Rental";
+		public static final String OBJECTS = "Objects";
+
+		private String title;
+		private RentalAgency a;
+		
+		public Node(String title, RentalAgency a) {
+			super();
+			this.title = title;
+			this.a = a;
+		}
+		
+		public Object[] getChildren()
+		{
+			if (title == CUSTOMERS)
+				return a.getCustomers().toArray();
+			else if (title == RENTAL)
+				return a.getRentals().toArray();
+			else if (title == OBJECTS)
+				return a.getObjectsToRent().toArray();
+			
+			return null;
+		}
+		
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return title;
+		}
 	}
 	
 
