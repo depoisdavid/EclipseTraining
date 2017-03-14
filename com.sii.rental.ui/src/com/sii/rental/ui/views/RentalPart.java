@@ -2,8 +2,10 @@
 package com.sii.rental.ui.views;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -12,7 +14,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 
 import com.opcoach.training.rental.Rental;
-import com.sii.rental.core.RentalCoreActivator;
+import com.opcoach.training.rental.RentalAgency;
 
 public class RentalPart {
 
@@ -23,9 +25,13 @@ public class RentalPart {
 	private Label lblNewLabel_2;
 	private Label lblNewLabel_3;
 	private Group dateGroup;
+	
+	@Inject 
+	private ESelectionService ss;
+	
 
 	@PostConstruct
-	public void CreateIHM(Composite parent) {
+	public void CreateIHM(Composite parent, RentalAgency a) {
 		parent.setLayout(new GridLayout(1, false));
 		
 		Group infoGroup = new Group(parent, SWT.NONE);
@@ -48,19 +54,21 @@ public class RentalPart {
 		dateGroup.setText("Dates de location");
 		dateGroup.setLayout(new GridLayout(2, false));
 		
-		Label lblNewLabel = new Label(dateGroup, SWT.NONE);
+		lblNewLabel = new Label(dateGroup, SWT.NONE);
 		lblNewLabel.setText("Du:");
 		
-		Label lblNewLabel_2 = new Label(dateGroup, SWT.NONE);
+		lblNewLabel_2 = new Label(dateGroup, SWT.NONE);
 		lblNewLabel_2.setText("New Label");
 		
-		Label lblNewLabel_1 = new Label(dateGroup, SWT.NONE);
+		lblNewLabel_1 = new Label(dateGroup, SWT.NONE);
 		lblNewLabel_1.setText("au :");
 		
-		Label lblNewLabel_3 = new Label(dateGroup, SWT.NONE);
+		lblNewLabel_3 = new Label(dateGroup, SWT.NONE);
 		lblNewLabel_3.setText("New Label");
 	
-		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
+		
+		
+		setRental(a.getRentals().get(0));
 	}
 	
 	public void setRental( Rental r)
