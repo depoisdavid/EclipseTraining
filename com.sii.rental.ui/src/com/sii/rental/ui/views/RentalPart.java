@@ -18,6 +18,11 @@ public class RentalPart {
 
 	private Label rentedObjectLabel;
 	private Label customerLabel;
+	private Label lblNewLabel;
+	private Label lblNewLabel_1;
+	private Label lblNewLabel_2;
+	private Label lblNewLabel_3;
+	private Group dateGroup;
 
 	@PostConstruct
 	public void CreateIHM(Composite parent) {
@@ -36,7 +41,24 @@ public class RentalPart {
 		rentedObjectLabel.setText("toto");
 		
 		customerLabel =new Label(infoGroup, SWT.BORDER);
+		customerLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		customerLabel.setText("Loué à:");
+		
+		dateGroup = new Group(parent, SWT.NONE);
+		dateGroup.setText("Dates de location");
+		dateGroup.setLayout(new GridLayout(2, false));
+		
+		Label lblNewLabel = new Label(dateGroup, SWT.NONE);
+		lblNewLabel.setText("Du:");
+		
+		Label lblNewLabel_2 = new Label(dateGroup, SWT.NONE);
+		lblNewLabel_2.setText("New Label");
+		
+		Label lblNewLabel_1 = new Label(dateGroup, SWT.NONE);
+		lblNewLabel_1.setText("au :");
+		
+		Label lblNewLabel_3 = new Label(dateGroup, SWT.NONE);
+		lblNewLabel_3.setText("New Label");
 	
 		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
 	}
@@ -45,11 +67,12 @@ public class RentalPart {
 	{
 		customerLabel.setText(r.getCustomer().getDisplayName());
 		rentedObjectLabel.setText(r.getRentedObject().getName());
+		lblNewLabel_2.setText(r.getStartDate().toString());
+		lblNewLabel_3.setText(r.getEndDate().toString());
 	}
 
 	@Focus
 	public void onFocus() {
 		
 	}
-
 }
