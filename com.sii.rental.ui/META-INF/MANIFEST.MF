@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
-Bundle-SymbolicName: com.sii.rental.ui
+Bundle-SymbolicName: com.sii.rental.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.sii.rental.ui.RentalUIActivator
 Bundle-Vendor: SII
@@ -10,7 +10,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt;bundle-version="3.106.0",
  com.sii.rental.core;bundle-version="1.0.0",
  org.eclipse.jface;bundle-version="3.13.0",
- org.eclipse.e4.core.di;bundle-version="1.6.100"
+ org.eclipse.e4.core.di;bundle-version="1.6.100",
+ org.eclipse.core.expressions;bundle-version="3.6.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.opcoach.training.rental,
  javax.annotation;version="1.0.0";resolution:=optional,

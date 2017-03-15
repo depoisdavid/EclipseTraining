@@ -14,5 +14,5 @@ public class AboutHandler {
 	{
 		MessageDialog.openInformation(c, "message", "helloworld");
 	}
-
+	
 }
