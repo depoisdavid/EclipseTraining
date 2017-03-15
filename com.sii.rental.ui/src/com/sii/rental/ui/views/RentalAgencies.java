@@ -40,6 +40,8 @@ public class RentalAgencies {
 		agencies.add(a);
 		tv.setInput(agencies);
 		
+		tv.expandAll();
+		
 		provideSelection();
 	}	
 	
