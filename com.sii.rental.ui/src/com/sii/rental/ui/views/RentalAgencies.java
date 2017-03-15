@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -16,8 +17,9 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 
 import com.opcoach.training.rental.RentalAgency;
+import com.sii.rental.ui.RentalUIConstants;
 
-public class RentalAgencies {
+public class RentalAgencies implements RentalUIConstants{
 	
 	@Inject
 	private ESelectionService selectionSevervice;
@@ -27,7 +29,7 @@ public class RentalAgencies {
 	
 	
 	@PostConstruct
-	public void CreateTreeViewer(Composite parent, RentalAgency a, IEclipseContext context) {
+	public void CreateTreeViewer(Composite parent, RentalAgency a, IEclipseContext context, EMenuService menu) {
 		
 		tv = new TreeViewer(parent);
 		
@@ -43,6 +45,8 @@ public class RentalAgencies {
 		tv.expandAll();
 		
 		provideSelection();
+		
+		menu.registerContextMenu(tv.getControl(), MENU_ID);
 	}	
 	
 	private void provideSelection()

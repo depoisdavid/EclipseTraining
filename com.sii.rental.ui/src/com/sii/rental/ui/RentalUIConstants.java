@@ -31,6 +31,8 @@ public interface RentalUIConstants {
 	// Constants for font values
 	public static final String FONT_CUSTOMER = "customerFont";
 	public static final String FONT_RENTAL_OBJECT  = "rentalObjectKey";
+	
+	public static final String MENU_ID  = "com.sii.rental.eap.popupmenu.helloworld";
 
 
 	
