@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.extensions.Preference;
 import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -62,5 +63,17 @@ public class RentalAgencies implements RentalUIConstants{
 				
 			}
 		});
+	}
+	
+	@Inject
+	public void refreshTree (@Preference(value=PREF_CUSTOMER_COLOR) String custCol, 
+			@Preference(value=PREF_RENTAL_COLOR) String rk, 
+			@Preference(value=PREF_RENTAL_OBJECT_COLOR) String rok)
+	{
+		if(tv!= null && ! tv.getControl().isDisposed())
+		{
+			tv.refresh();
+		}
+		
 	}
 }
