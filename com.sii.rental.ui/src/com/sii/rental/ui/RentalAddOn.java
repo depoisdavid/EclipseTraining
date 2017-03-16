@@ -2,7 +2,13 @@ package com.sii.rental.ui;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.lang.model.element.Element;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
@@ -42,6 +48,29 @@ public class RentalAddOn implements RentalUIConstants {
 	public void reactOnRentalEvent(@UIEventTopic("copy/Customer") Customer c)
 	{
 		System.out.println(c.getDisplayName());
+	}
+	
+	@Inject
+	public void getExtension (IExtensionRegistry reg)
+	{
+		IExtensionPoint extp = reg.getExtensionPoint("org.eclipse.e4.workbench.model");
+		IExtension[] extensions = extp.getExtensions();
+		
+		for(IExtension ext : extensions)
+		{
+			for (IConfigurationElement elt : ext.getConfigurationElements())
+			{
+				if (elt.getName().equals("fragment"))
+				{
+				System.out.println ("in plugin : " + elt.getNamespaceIdentifier() +" "+ elt.getAttribute("uri"));
+			
+				}else if (elt.getName().equals("processor"))
+				{
+				System.out.println ("in plugin : " + elt.getNamespaceIdentifier() +" "+ elt.getAttribute("class"));
+			
+				}
+				}
+		}
 	}
 	
 	
