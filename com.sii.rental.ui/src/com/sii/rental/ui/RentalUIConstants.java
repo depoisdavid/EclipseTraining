@@ -33,6 +33,8 @@ public interface RentalUIConstants {
 	public static final String FONT_RENTAL_OBJECT  = "rentalObjectKey";
 	
 	public static final String MENU_ID  = "com.sii.rental.eap.popupmenu.helloworld";
+	
+	public static final String PALETTE_MANAGER = "myPalette";
 
 
 

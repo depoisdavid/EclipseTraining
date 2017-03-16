@@ -1,6 +1,7 @@
 package com.sii.rental.ui.views;
 
 import java.util.Collection;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,14 +20,13 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.e4.preferences.ScopedPreferenceStore;
 import com.opcoach.training.rental.Customer;
-import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
+import com.sii.rental.ui.Palette;
 import com.sii.rental.ui.RentalUIConstants;
 
 public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, IFontProvider, RentalUIConstants  {
@@ -158,6 +158,14 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		}
 	}
 	
+
+
+
+	@Override
+	public Font getFont(Object element) {
+		return null;
+	}
+	
 	private Color getAColor(String rgbkey)
 	{
 		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
@@ -173,21 +181,13 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		return col;
 	}
 
-
-	@Override
-	public Font getFont(Object element) {
-		return null;
-	}
-
 	@Override
 	public Color getForeground (Object element) {
-		if (element instanceof Customer)
-			return getAColor(pref.getString(PREF_CUSTOMER_COLOR));
-		if (element instanceof Rental)
-			return getAColor(pref.getString(PREF_RENTAL_COLOR));
-		if (element instanceof RentalObject)
-			return getAColor(pref.getString(PREF_RENTAL_OBJECT_COLOR));
-		return null;
+		
+		String pId = pref.getString(PREF_PALETTE);
+		Palette p = pmanager.get(pId);
+		return p.getProvider().getForeground(element);
+		
 	}
 
 	@Override
@@ -197,6 +197,9 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	
 	@Inject @Named(RENTAL_UI_IMG_REGISTRY)
 	private ImageRegistry registry;
+	
+	@Inject @Named(PALETTE_MANAGER)
+	private Map<String, Palette> pmanager;
 	
 	@Override
 	public Image getImage(Object element) {

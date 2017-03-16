@@ -68,7 +68,8 @@ public class RentalAgencies implements RentalUIConstants{
 	@Inject
 	public void refreshTree (@Preference(value=PREF_CUSTOMER_COLOR) String custCol, 
 			@Preference(value=PREF_RENTAL_COLOR) String rk, 
-			@Preference(value=PREF_RENTAL_OBJECT_COLOR) String rok)
+			@Preference(value=PREF_RENTAL_OBJECT_COLOR) String rok,
+			@Preference(value=PREF_PALETTE) String rgk)
 	{
 		if(tv!= null && ! tv.getControl().isDisposed())
 		{
