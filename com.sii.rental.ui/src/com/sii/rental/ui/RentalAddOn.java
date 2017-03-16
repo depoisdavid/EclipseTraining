@@ -62,14 +62,12 @@ public class RentalAddOn implements RentalUIConstants {
 			{
 				if (elt.getName().equals("fragment"))
 				{
-				System.out.println ("in plugin : " + elt.getNamespaceIdentifier() +" "+ elt.getAttribute("uri"));
-			
+					System.out.println ("in plugin : " + elt.getNamespaceIdentifier() +" "+ elt.getAttribute("uri"));
 				}else if (elt.getName().equals("processor"))
 				{
-				System.out.println ("in plugin : " + elt.getNamespaceIdentifier() +" "+ elt.getAttribute("class"));
-			
+					System.out.println ("in plugin : " + elt.getNamespaceIdentifier() +" "+ elt.getAttribute("class"));
 				}
-				}
+			}
 		}
 	}
 	
