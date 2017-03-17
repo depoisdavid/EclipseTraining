@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.sii.GandB/src" modelPluginID="com.sii.GandB"
+    modelName="GandB" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>GandB.ecore</foreignModel>
+  <genPackages prefix="GandB" disposableProviderFactory="true" ecorePackage="GandB.ecore#/">
+    <genClasses ecoreClass="GandB.ecore#//Bar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Bar/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Bar/NbreEmployee"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GandB.ecore#//Bar/jeuxvideos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Bar/Customer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GandB.ecore#//Bar/nourritures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GandB.ecore#//Bar/boissons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GandB.ecore#//Bar/menus"/>
+    </genClasses>
+    <genClasses ecoreClass="GandB.ecore#//Nourriture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Nourriture/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Nourriture/Price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Nourriture/NumberStock"/>
+    </genClasses>
+    <genClasses ecoreClass="GandB.ecore#//Boisson">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Boisson/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Boisson/Price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Boisson/NumberStock"/>
+    </genClasses>
+    <genClasses ecoreClass="GandB.ecore#//JeuxVideo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//JeuxVideo/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//JeuxVideo/Support"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//JeuxVideo/StartTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//JeuxVideo/EndTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//JeuxVideo/CustomerRequired"/>
+    </genClasses>
+    <genClasses ecoreClass="GandB.ecore#//Menu">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GandB.ecore#//Menu/Price"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GandB.ecore#//Menu/plats"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GandB.ecore#//Menu/boisson"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

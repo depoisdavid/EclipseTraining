@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GandB:Bar xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:GandB="http://com.sii/GandB/1.0"
+    xsi:schemaLocation="http://com.sii/GandB/1.0 GandB.ecore">
+  <jeuxvideos/>
+  <nourritures
+      Name="chips"/>
+  <nourritures
+      Name="pizza"/>
+  <boissons
+      Name="coca"/>
+  <boissons
+      Name="whisky"/>
+  <menus Price="10"
+      plats="//@nourritures.0"
+      boisson="//@boissons.0"/>
+  <menus Price="15"
+      plats="//@nourritures.1"
+      boisson="//@boissons.1"/>
+</GandB:Bar>

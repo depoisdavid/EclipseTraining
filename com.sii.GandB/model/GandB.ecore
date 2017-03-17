@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GandB" nsURI="http://com.sii/GandB/1.0" nsPrefix="GandB">
+  <eClassifiers xsi:type="ecore:EClass" name="Bar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbreEmployee" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jeuxvideos" upperBound="-1"
+        eType="#//JeuxVideo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Customer" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nourritures" upperBound="-1"
+        eType="#//Nourriture" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boissons" upperBound="-1"
+        eType="#//Boisson" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
+        eType="#//Menu" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nourriture">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Price" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberStock" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boisson">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Price" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberStock" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JeuxVideo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Support" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CustomerRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Menu">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Price" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plats" upperBound="3" eType="#//Nourriture"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boisson" eType="#//Boisson"/>
+  </eClassifiers>
+</ecore:EPackage>
