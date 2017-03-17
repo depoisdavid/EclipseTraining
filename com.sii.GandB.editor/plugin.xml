@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated GandB -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.sii.GandB.GandB.presentation.GandBModelWizardID"
+            name="%_UI_GandBModelWizard_label"
+            class="com.sii.GandB.GandB.presentation.GandBModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GandBModelFile.gif">
+         <description>%_UI_GandBModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated GandB -->
+      <editor
+            id="com.sii.GandB.GandB.presentation.GandBEditorID"
+            name="%_UI_GandBEditor_label"
+            icon="icons/full/obj16/GandBModelFile.gif"
+            extensions="gandb"
+            class="com.sii.GandB.GandB.presentation.GandBEditor"
+            contributorClass="com.sii.GandB.GandB.presentation.GandBActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
